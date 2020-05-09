@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Prueba2     </title>
+</head>
+<body>
+ 
+    <div id="app">
+        <h1>{{titulo}}</h1>
+       
+
+<p>Nombre de la Fruta</p>
+<input type="text" id=texto1 v-model="nuevaFruta" @keyup.enter ="agregarFuta" > </input> <!-- Input con v-model asociada a la variable en el (nombre de las frutas) -->
+<p>Cantidad</p>
+<input type="text" id=texto2 v-model="Frutacantidad" > </input><!--Input con v-model asociada a la variable de cantidad de frutas en el -->
+<!-- @keyup.enter nuestro input detecta cuando se pulsa la tecla enter y ejecuta el proceso "agregarFuta"
+-->
+<button v-on:click="agregarFuta" >On Clic</button>
+        <ul>
+            <li v-for="fruta of frutas"> {{fruta}}  <span v-if="fruta.cantidad<=2"> - Sin Stock </span><!-- se le aplica if a la cantidad de frutas-->
+            </li> <!-- Iterar(mostrar todo un array) con un for -->
+                <!-- Ademas se le agrega el v-if="fruta.cantidad<=5" condicionando que si el valor del atributo cantidad es menor a 5 se imprima sin Stock -->
+           </ul>
+        <ul>
+              
+            <li v-for="fruta of frutas2"> {{fruta.nombre}} <span v-if="fruta.cantidad<=5"> - Sin Stock </span><!-- se le aplica if a la cantidad de frutas-->
+                <input type="number" v-model.number=fruta.cantidad>
+            </li> <!-- Iterar(mostrar todo un array) con un for y sus atributos mencionando sus atributos -->
+            </ul>
+        <ul>
+            <li v-for="fruta of frutas2"> {{fruta.nombre}} = {{fruta.cantidad}} <span v-if="fruta.cantidad<=5"> - Sin Stock </span><!-- se le aplica if a la cantidad de frutas--></li> <!-- Iterar(mostrar un array) con un for pero solo un valor de los atributos -->
+        </ul>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><!-- se invoca url de Vue -->
+<script src="03.js"></script> <!-- Se invoca archivo js ubicado en la misma carpeta que este archivo html -->
+</body>
+</html>
